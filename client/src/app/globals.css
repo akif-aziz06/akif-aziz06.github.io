@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* Theme is driven by a class on <html>, set before paint by the inline script
+   in layout.tsx, so there is no flash on load. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-sans-stack: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono-stack: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
+    Menlo, monospace;
+
+  --bg: #fbfbfd;
+  --bg-elev: #ffffff;
+  --surface: #f4f5f8;
+  --border: #e4e7ee;
+  --fg: #0b0d12;
+  --muted: #5b6172;
+  --accent: #3b5bdb;
+  --accent-2: #0e8f9e;
+  --glow-1: rgba(59, 91, 219, 0.16);
+  --glow-2: rgba(14, 143, 158, 0.13);
+  --grid: rgba(11, 13, 18, 0.045);
+}
+
+.dark {
+  --bg: #08090c;
+  --bg-elev: #0f1116;
+  --surface: #12141b;
+  --border: #21252f;
+  --fg: #e8eaf0;
+  --muted: #939ab0;
+  --accent: #6c8cff;
+  --accent-2: #35d6e8;
+  --glow-1: rgba(108, 140, 255, 0.16);
+  --glow-2: rgba(53, 214, 232, 0.1);
+  --grid: rgba(232, 234, 240, 0.045);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+
+  --font-sans: var(--font-sans-stack);
+  --font-mono: var(--font-mono-stack);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans-stack);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Ambient background: faint grid + two soft colour blooms. */
+  .bg-canvas {
+    background-image:
+      radial-gradient(60rem 40rem at 15% -10%, var(--glow-1), transparent 60%),
+      radial-gradient(50rem 35rem at 95% 5%, var(--glow-2), transparent 60%),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 3.5rem 3.5rem, 3.5rem 3.5rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      100deg,
+      var(--fg) 20%,
+      var(--accent) 60%,
+      var(--accent-2) 95%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card {
+    background-color: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    transition:
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .card-hover:hover {
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -18px var(--glow-1);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    font-family: var(--font-mono-stack);
+    white-space: nowrap;
+  }
+}
+
+/* Scroll-reveal: elements start shifted, .is-visible settles them. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

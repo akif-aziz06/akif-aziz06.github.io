@@ -1,152 +1,189 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2E9EF7,100:6C63FF&height=200&section=header&text=Akif%20Aziz&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=AI%20Engineer%20%7C%20Software%20Engineer&descAlignY=55&descSize=18" width="100%"/>
+# akifaziz.me
 
-<img src="https://readme-typing-svg.herokuapp.com/?font=Fira+Code&size=22&pause=1000&color=2E9EF7&center=true&vCenter=true&width=600&lines=Designing+multi-agent+systems;Architecting+RAG+pipelines;Building+full-stack+AI+apps" alt="Typing SVG"/>
+**Personal portfolio of Akif Aziz — AI Engineer**
 
-<br/>
+Multi-agent systems, RAG pipelines, and the full-stack products they live in.
 
-<a href="https://linkedin.com/in/akif-aziz-211972281"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="https://akifaziz.me/"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white"/></a>
-<a href="mailto:makifaziz06@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+[**Live site →**](https://akifaziz.me)
+
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Deploy](https://github.com/akif-aziz06/akif-aziz06.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/akif-aziz06/akif-aziz06.github.io/actions/workflows/deploy.yml)
 
 </div>
 
-<br/>
+---
 
-## 👋 About Me
+## Overview
 
-I'm **Akif**, an AI Engineer and Software Engineer with hands-on experience designing enterprise-grade multi-agent systems, Retrieval-Augmented Generation (RAG) pipelines, and full-stack AI applications. I specialize in leveraging modern LLM frameworks—including OpenAI GPT-4o, Anthropic Claude, Mistral, Ollama, and vLLM—to build scalable solutions that optimize business operations and significantly reduce manual processing time. I am passionate about translating complex requirements into actionable technical architecture, utilizing vector databases, knowledge graphs, and robust containerized deployments to drive intelligent automation.
+A single-page portfolio built with the Next.js App Router and exported as fully static
+HTML, then served from GitHub Pages on a custom domain. There is no runtime backend —
+every route is prerendered at build time, so the whole site is a handful of static files
+behind a CDN.
 
-<br/>
+The frontend lives in [`client/`](client/), leaving the repository root free for a
+backend or other services later on.
 
-## 🛠️ Tech Arsenal
+## Features
 
-### Languages
+- **Content-driven** — all copy lives in one typed file; components render whatever it says
+- **Light & dark themes** — applied before first paint via an inline script, so there's no flash
+- **Fully static** — 4 prerendered routes, no server required
+- **Accessible** — skip link, semantic landmarks, visible focus rings, `prefers-reduced-motion` honoured
+- **SEO-ready** — Open Graph tags, JSON-LD `Person` schema, generated `sitemap.xml` and `robots.txt`
+- **Zero animation dependencies** — scroll reveals use CSS plus `IntersectionObserver`
+- **Responsive** — mobile-first, with a slide-in nav sheet on small screens
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="32"/><br><b>Python</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="32"/><br><b>JavaScript</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="32"/><br><b>TypeScript</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="32"/><br><b>C++</b></td>
-    <td align="center"><img src="https://img.icons8.com/color/48/sql.png" width="32"/><br><b>SQL</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" width="32"/><br><b>Bash/Shell</b></td>
-  </tr>
-</table>
+## Tech stack
 
-### 🧬 ML Frameworks & Libraries
+| Layer | Choice |
+| --- | --- |
+| Framework | Next.js 16 (App Router, Turbopack) |
+| UI | React 19, TypeScript |
+| Styling | Tailwind CSS v4 with CSS-variable theming |
+| Icons | Hand-rolled inline SVG (no icon library) |
+| Fonts | Inter + JetBrains Mono, with system fallbacks |
+| Hosting | GitHub Pages via GitHub Actions |
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" width="32"/><br><b>PyTorch</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" width="32"/><br><b>TensorFlow</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" width="32"/><br><b>scikit-learn</b></td>
-    <td align="center"><img src="https://cdn.simpleicons.org/huggingface" width="32"/><br><b>🤗 Transformers</b></td>
-  </tr>
-</table>
+## Project structure
 
-### 📊 Data Science & Scraping Toolkit
+```
+akif-aziz06.github.io/
+├── client/                        # the Next.js application
+│   ├── public/                    # résumé PDF, favicon, CNAME, .nojekyll
+│   └── src/
+│       ├── app/
+│       │   ├── layout.tsx         # metadata, fonts, theme script, JSON-LD
+│       │   ├── page.tsx           # section composition
+│       │   ├── globals.css        # design tokens + custom utilities
+│       │   ├── sitemap.ts         # generates sitemap.xml
+│       │   └── robots.ts          # generates robots.txt
+│       ├── components/            # Nav, Hero, About, Experience, Projects,
+│       │                          # Skills, Education, Contact, Footer,
+│       │                          # Reveal, Section, ThemeToggle, Icons
+│       └── data/
+│           └── portfolio.ts       # ← all site content
+├── .github/workflows/deploy.yml   # build + publish to GitHub Pages
+└── CNAME                          # custom domain
+```
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="32"/><br><b>NumPy</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="32"/><br><b>Pandas</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" width="32"/><br><b>Selenium</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg" width="32"/><br><b>Playwright</b></td>
-  </tr>
-</table>
+## Getting started
 
-### 🤖 AI & Agentic Engineering
+**Prerequisites:** Node.js 20 or newer (developed on 24) and npm.
 
-<p>
-  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
-  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge&logo=langgraph&logoColor=white" alt="LangGraph"/>
-  <img src="https://img.shields.io/badge/LangSmith-000000?style=for-the-badge&logo=langsmith&logoColor=white" alt="LangSmith"/>
-  <img src="https://img.shields.io/badge/CrewAI-FF5A1F?style=for-the-badge&logo=crewai&logoColor=white" alt="CrewAI"/>
-  <img src="https://img.shields.io/badge/AutoGen-0078D4?style=for-the-badge&logo=microsoft&logoColor=white" alt="AutoGen"/>
-  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI API"/>
-  <img src="https://img.shields.io/badge/Anthropic_API-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic API"/>
-  <img src="https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge&logo=ollama&logoColor=black" alt="Ollama"/>
-</p>
+```bash
+git clone https://github.com/akif-aziz06/akif-aziz06.github.io.git
+cd akif-aziz06.github.io/client
+npm install
+npm run dev
+```
 
-Building multi-agent systems, orchestrating complex LLM pipelines, and applying prompt engineering principles for optimized model inference.
+Open <http://localhost:3000>.
 
-### 🧠 Vector & Graph Databases
+### Scripts
 
-<p>
-  <img src="https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white" alt="Pinecone"/>
-  <img src="https://img.shields.io/badge/ChromaDB-6A4C93?style=for-the-badge&logo=chromadb&logoColor=white" alt="ChromaDB"/>
-  <img src="https://img.shields.io/badge/Weaviate-000000?style=for-the-badge&logo=weaviate&logoColor=white" alt="Weaviate"/>
-  <img src="https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white" alt="Neo4j"/>
-  <img src="https://img.shields.io/badge/Memgraph-FF5F32?style=for-the-badge&logo=memgraph&logoColor=white" alt="Memgraph"/>
-</p>
+Run these from inside `client/`:
 
-Powering contextual semantic search, knowledge graph traversal, and enterprise RAG pipelines.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Type-check and export the static site to `client/out/` |
+| `npm start` | Serve a production build locally |
 
-### Frontend & UI
+## Editing the content
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="32"/><br><b>React JS</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="32"/><br><b>Next JS</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="32"/><br><b>Tailwind CSS</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="32"/><br><b>Bootstrap</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="32"/><br><b>Figma</b></td>
-  </tr>
-</table>
+Everything you'd normally want to change lives in
+[`client/src/data/portfolio.ts`](client/src/data/portfolio.ts):
 
-### Backend & Databases
+| Export | Controls |
+| --- | --- |
+| `profile` | Name, role, tagline, contact details, social links, summary |
+| `stats` | The four headline metrics under the hero |
+| `experience` | Job history, bullets, and per-role tech chips |
+| `projects` | Project cards, highlights, and stacks |
+| `skills` | Skill groups and their chips |
+| `education` | Degrees and institutions |
+| `softSkills`, `languages` | Chips in the About section |
+| `navLinks` | Nav items (each `href` must match a section `id`) |
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="32"/><br><b>FastAPI</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="32"/><br><b>Flask</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="32"/><br><b>Node.js</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="32"/><br><b>Express JS</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="32"/><br><b>PostgreSQL</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="32"/><br><b>MongoDB</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" width="32"/><br><b>Redis</b></td>
-  </tr>
-</table>
+Edit that file and the components pick it up — routine updates need no JSX changes.
 
-### ⚙️ DevOps & Infrastructure
+**Other common tweaks**
 
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="32"/><br><b>Docker</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="32"/><br><b>Linux</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="32"/><br><b>Git</b></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="32"/><br><b>GitHub</b></td>
-  </tr>
-</table>
+- **Résumé PDF** — replace `client/public/Akif_Aziz_Resume.pdf`, keeping the filename
+  (or update `profile.resume`).
+- **Colours** — edit the CSS variables in
+  [`client/src/app/globals.css`](client/src/app/globals.css). The `:root` block is the
+  light palette, `.dark` the dark one; utilities like `text-accent` resolve through
+  these, so changing a value re-themes the whole site.
+- **Adding a section** — create the component, then render it in
+  [`client/src/app/page.tsx`](client/src/app/page.tsx) and add an entry to `navLinks`.
 
-<br/>
+## Deployment
+
+Every push to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
+which installs dependencies, builds the static export from `client/`, and publishes
+`client/out` to GitHub Pages.
+
+> [!IMPORTANT]
+> **One-time setup:** in the repository, go to **Settings → Pages → Build and deployment**
+> and set **Source** to **GitHub Actions**. Left on the default "Deploy from a branch",
+> Pages would serve the raw source files instead of the built site.
+
+The custom domain is preserved by `client/public/CNAME`, which is copied into the export
+at build time. `client/public/.nojekyll` stops GitHub from running Jekyll over the output,
+which would otherwise strip the `_next/` asset directory.
+
+## Troubleshooting
+
+<details>
+<summary><strong><code>npm install</code> fails with <code>ETIMEDOUT</code></strong></summary>
+
+<br>
+
+If installs die after roughly three seconds with a network error, this is a Node
+connection-timing issue rather than a broken network. `registry.npmjs.org` resolves to
+many Cloudflare addresses, and Node's Happy Eyeballs gives each one a 250 ms budget — if
+your real connect time is higher, every attempt is abandoned and npm reports `ETIMEDOUT`.
+
+Raise the per-address budget:
+
+```bash
+export NODE_OPTIONS="--network-family-autoselection-attempt-timeout=5000 --dns-result-order=ipv4first"
+npm install
+```
+
+Add that `export` line to your `~/.bashrc` to make it permanent.
+
+</details>
+
+<details>
+<summary><strong>Hydration mismatch warnings in the browser console</strong></summary>
+
+<br>
+
+Warnings mentioning attributes such as `bis_skin_checked`, `bis_register`, or scripts
+loaded from `chrome-extension://` come from a browser extension modifying the DOM before
+React hydrates — not from the site. Confirm by loading the page in an incognito window,
+where extensions are disabled by default.
+
+</details>
+
+## Contact
+
+**Akif Aziz** — AI Engineer, Lahore, Pakistan
+
+[Email](mailto:makifaziz06@gmail.com) ·
+[LinkedIn](https://linkedin.com/in/akif-aziz-211972281) ·
+[GitHub](https://github.com/akif-aziz06)
 
 ---
 
 <div align="center">
-
-### 📫 Let's Connect
-
-<a href="https://linkedin.com/in/akif-aziz-211972281"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="https://intellotrade.com"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white"/></a>
-<a href="mailto:makifaziz06@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-
-<sub>Thanks for stopping by — always open to interesting problems and collaborations.</sub>
-
+<sub>The source is free to learn from. Personal content — résumé, project write-ups,
+and biography — belongs to Akif Aziz; please swap it for your own if you reuse the code.</sub>
 </div>
-<!--
-**akif-aziz06/akif-aziz06** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
