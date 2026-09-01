@@ -10,7 +10,7 @@ export default function Projects() {
       id="projects"
       index="03 — Projects"
       title="Selected work"
-      lead="Systems I designed end to end — agents, retrieval, and the product around them."
+      lead="Work I've built end to end — agent design, retrieval pipelines, and the product around them."
     >
       <div className="space-y-8">
         {projects.map((project, i) => (
@@ -41,6 +41,21 @@ export default function Projects() {
                   <p className="mt-5 max-w-3xl leading-relaxed text-muted">
                     {project.summary}
                   </p>
+
+                  {project.metrics ? (
+                    <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
+                      {project.metrics.map((metric) => (
+                        <div key={metric.label}>
+                          <dt className="text-xl font-bold tracking-tight text-accent sm:text-2xl">
+                            {metric.value}
+                          </dt>
+                          <dd className="mt-1 text-xs leading-snug text-muted">
+                            {metric.label}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : null}
                 </div>
 
                 <div className="p-6 sm:p-8">
@@ -85,8 +100,7 @@ export default function Projects() {
               <div>
                 <h3 className="font-semibold tracking-tight">More on GitHub</h3>
                 <p className="mt-1 text-sm text-muted">
-                  Experiments, agent prototypes, and everything still in
-                  progress.
+                  Source code, experiments, and work in progress.
                 </p>
               </div>
             </div>

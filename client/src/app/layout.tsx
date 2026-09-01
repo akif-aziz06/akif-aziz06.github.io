@@ -78,7 +78,12 @@ const jsonLd = {
   email: `mailto:${profile.email}`,
   url: siteUrl,
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
-  sameAs: [profile.socials.github, profile.socials.linkedin, profile.socials.website],
+  // `url` already points at this site, so sameAs lists only external profiles.
+  sameAs: [profile.socials.github, profile.socials.linkedin],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Bahria University Lahore Campus",
+  },
 };
 
 export default function RootLayout({

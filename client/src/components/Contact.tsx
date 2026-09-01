@@ -54,7 +54,7 @@ export default function Contact() {
       id="contact"
       index="06 — Contact"
       title="Let's build something"
-      lead="Open to AI engineering roles, freelance builds, and interesting problems. The fastest way to reach me is email."
+      lead="Open to AI and software engineering roles, and to interesting problems worth solving. The fastest way to reach me is email."
     >
       <div className="grid gap-5 sm:grid-cols-2">
         {links.map((link, i) => (

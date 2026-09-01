@@ -16,7 +16,7 @@ export const profile = {
   socials: {
     github: "https://github.com/akif-aziz06",
     linkedin: "https://linkedin.com/in/akif-aziz-211972281",
-    website: "https://intellotrade.com",
+    website: "https://akifaziz.me",
   },
   summary: [
     "AI Engineer and Computer Science undergraduate with hands-on experience designing enterprise-grade multi-agent systems, Retrieval-Augmented Generation (RAG) pipelines, and full-stack AI applications.",
@@ -25,11 +25,15 @@ export const profile = {
   ],
 } as const;
 
+/**
+ * Hero stats describe the person, not any one project.
+ * Project-specific numbers belong to the project — see `projects[].metrics`.
+ */
 export const stats = [
-  { value: "60%+", label: "Manual processing time removed" },
-  { value: "96%", label: "Agent routing accuracy" },
-  { value: "5,000+", label: "HS codes in knowledge graph" },
-  { value: "<100ms", label: "Cypher query traversal" },
+  { value: "2+ yrs", label: "Professional experience" },
+  { value: "60%+", label: "Manual processing time cut" },
+  { value: "5", label: "LLM runtimes integrated" },
+  { value: "BSCS '26", label: "Bahria University Lahore" },
 ] as const;
 
 export type Experience = {
@@ -90,6 +94,8 @@ export type Project = {
   period: string;
   context: string;
   summary: string;
+  /** Headline numbers for this project, shown on its card. */
+  metrics?: { value: string; label: string }[];
   highlights: string[];
   stack: string[];
   featured?: boolean;
@@ -102,7 +108,13 @@ export const projects: Project[] = [
     period: "Sep 2025 — May 2026",
     context: "Final Year Project · Bahria University Lahore Campus",
     summary:
-      "An AI-powered trade intelligence platform for the Pakistan–US corridor that automates HS code classification, duty exemption analysis, and total landed (DDP) cost calculation for SMEs.",
+      "Co-developed an AI-powered trade intelligence platform for the Pakistan–US corridor that automates HS code classification, duty exemption analysis, and total landed (DDP) cost calculation for SMEs.",
+    metrics: [
+      { value: "96%", label: "Agent routing accuracy" },
+      { value: "5,000+", label: "HS codes in knowledge graph" },
+      { value: "<100ms", label: "Cypher graph traversal" },
+      { value: "5", label: "Specialized agent tools" },
+    ],
     highlights: [
       "Built a LangGraph ReAct agent whose Router Node selects from five specialized tools — Pakistan PCT Search, US HTS Search, Document Search, Route Evaluation, and Web Search — reaching 96% routing accuracy on a 100-query benchmark.",
       "Engineered a Memgraph knowledge graph of 5,000+ HS codes with hierarchical Chapter → SubChapter → Heading → HSCode relationships, enabling sub-100ms Cypher traversal.",
