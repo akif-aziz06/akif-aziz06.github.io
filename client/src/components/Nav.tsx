@@ -91,7 +91,7 @@ export default function Nav() {
             className="hidden items-center gap-2 rounded-full border border-border bg-bg-elev px-4 py-1.5 text-sm font-medium transition hover:border-accent hover:text-accent sm:inline-flex"
           >
             <DownloadIcon className="size-4" />
-            Résumé
+            Resume
           </a>
           <button
             type="button"
@@ -134,7 +134,7 @@ export default function Nav() {
               className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-semibold text-bg"
             >
               <DownloadIcon className="size-4" />
-              Download résumé
+              Download resume
             </a>
           </li>
         </ul>

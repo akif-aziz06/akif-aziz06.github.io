@@ -134,6 +134,92 @@
     font-family: var(--font-mono-stack);
     white-space: nowrap;
   }
+
+  /* ── 3D ──────────────────────────────────────────────────────────
+     Tilt3D writes --rx/--ry (rotation) and --mx/--my (cursor position)
+     as custom properties, so tilting never triggers a React render. */
+  .tilt3d {
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 50%;
+    transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  /* While the cursor is inside, track it tightly; on exit, ease back slowly. */
+  .tilt3d.is-tilting {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Depth layers — children lift toward the viewer as the parent rotates. */
+  .depth-1 {
+    transform: translateZ(30px);
+    transform-style: preserve-3d;
+  }
+
+  .depth-2 {
+    transform: translateZ(60px);
+    transform-style: preserve-3d;
+  }
+
+  .depth-3 {
+    transform: translateZ(90px);
+    transform-style: preserve-3d;
+  }
+
+  /* Specular highlight that follows the cursor across the surface.
+     Hidden at rest so the portrait keeps its true colours; it fades in
+     only while a mouse is actually over the element. */
+  .glare {
+    background: radial-gradient(
+      18rem 18rem at var(--mx) var(--my),
+      color-mix(in oklab, var(--accent-2) 26%, transparent),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .tilt3d.is-tilting .glare {
+    opacity: 1;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: float-y 8.5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 7s ease-in-out infinite;
 }
 
 /* Scroll-reveal: elements start shifted, .is-visible settles them. */
@@ -160,6 +246,20 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  /* Flatten every 3D effect rather than animating it faster. */
+  .tilt3d,
+  .depth-1,
+  .depth-2,
+  .depth-3 {
+    transform: none !important;
+  }
+
+  .float-slow,
+  .float-slower,
+  .pulse-glow {
+    animation: none !important;
   }
 
   *,
